@@ -1,5 +1,5 @@
-**Router Monitoring Lab\
-\
+**Router Monitoring Lab**
+
 1. Network Discovery and Router Identification**
 
 **Introduction**
@@ -10,85 +10,91 @@ Network discovery is often the first step in security monitoring and incident re
 
 The environment used in this lab is entirely fictional and was created for educational and portfolio purposes. No real network devices, IP addresses, or personally identifiable information are included. The findings from this phase will support future Router Monitoring, Threat Hunting, Dashboarding, and Alerting labs using Splunk Enterprise.\
 \
-How can I create a simulated router discovery dataset from the terminal?\
-\
-\
-\
-Was the dataset created successfully?\
-\
+How can I create a simulated router discovery dataset from the terminal?
 
-What data was written to the file?\
-\
-\
-\
-\
-Does the router discovery dataset exist in the Downloads directory?\
-\
-\
-\
-\
-\
-What is the default gateway (router) for the network?\
-\
-\
-\
-What IP address is assigned to the analyst workstation?\
-\
-\
-\
-\
-What devices exist on the local network?\
-\
-\
-\
-How many devices were discovered?\
+Please refer to Image 1 for the corresponding terminal command and output. 
+
+Was the dataset created successfully?
+
+Please refer to Image 2 for the corresponding terminal command and output.
+
+What data was written to the file?
+
+Please refer to Image 3 for the corresponding terminal command and output.
+
+Does the router discovery dataset exist in the Downloads directory?
+
+Please refer to Image 4 for the corresponding terminal command and output.
+
+
+What is the default gateway (router) for the network?
+
+Please refer to Image 5 for the corresponding terminal command and output.
+
+What IP address is assigned to the analyst workstation?
+
+Please refer to Image 6 for the corresponding terminal command and output.
+
+What devices exist on the local network?
+
+Please refer to Image 7 for the corresponding terminal command and output.
+
+
+How many devices were discovered?
+
+Please refer to Image 8 for the corresponding terminal command and output.
+
 SOC-Windows-01
 
 SOC-Server-01
 
 SOC-Mobile-01
 
-SOC-Camera-01\
-\
-\
-\
-Were there successful connectivity tests to the router?\
+SOC-Camera-01
+
+Were there successful connectivity tests to the router?
+
+Please refer to Image 9 for the corresponding terminal command and output.
+
+
 2026-07-01 08:00:07 PING SRC=192.168.50.100 DST=192.168.50.1 STATUS=SUCCESS
 
-\
-\
-\
-What active connections exist?\
-\
-\
-\
-What services are listening on the network?\
-\
-\
-\
-2. Router Log Collection Dataset
------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-### Introduction
+What active connections exist?
+
+Please refer to Image 10 for the corresponding terminal command and output.
+
+
+What services are listening on the network?
+
+Please refer to Image 11 for the corresponding terminal command and output.
+
+**Router Log Collection Dataset**
+
+Please refer to Image 12 for the corresponding terminal command and output.
+
+
+**Introduction**
 
 In this section, I move from basic network discovery into router log collection. Because this lab uses a simulated environment, the router logs are generated safely for public GitHub documentation. These logs simulate security-relevant router activity such as administrator logins, failed login attempts, DHCP leases, DNS activity, configuration changes, interface events, and blocked traffic.
 
-### \
-\
-Did anyone successfully log in to the router?\
+Did anyone successfully log in to the router?
+
+Please refer to Image 13 for the corresponding terminal command and output.
+
 Yes. The router had one successful administrator login.
 
 The successful login came from 192.168.50.100 using the admin account. Since this is the fictional analyst workstation, this appears to be expected activity.
 
-\
-\
-**.** Were there failed router administrator login attempts?\
-\
+Were there failed router administrator login attempts?
+
+Please refer to Image 14 for the corresponding terminal command and output.
+
 Yes. Three failed administrator login attempts were recorded.
 
 Identifies failed authentication attempts against the router's administrative interface.
 
-### Analyst Interpretation
+**Analyst Interpretation**
 
 The router recorded: Two failed login attempts from **203.0.113.25** targeting the **admin** account. One failed login attempt from **198.51.100.44** targeting the **root** account.
 
@@ -98,17 +104,14 @@ Password guessing\
 Brute-force activity\
 Unauthorized access attempts\
 Reconnaissance against administrative services\
-\
-**\
-\
-\
-.** Which source IP addresses generated failed administrator login attempts?\
-\
-Two source IP addresses generated failed administrator login attempts.
+
+ Which source IP addresses generated failed administrator login attempts?
+
+ Two source IP addresses generated failed administrator login attempts.
 
 Extracts the source IP addresses associated with failed login attempts and counts how many times each IP appears in the logs.
 
-### Analyst Interpretation
+**Analyst Interpretation**
 
 The most active source IP was:
 
@@ -150,12 +153,11 @@ New devices joining the network\
 Device inventory\
 Rogue or unauthorized systems\
 IP-to-host mapping during investigations\
-\
-\
-\
-\
-**.** What DNS queries were recorded by the router?\
-\
+
+Please refer to Image 15 for the corresponding terminal command and output.
+
+What DNS queries were recorded by the router?\
+
 Two DNS queries were recorded by the router.
 
 Displays DNS requests generated by hosts on the network, including:
@@ -183,9 +185,10 @@ suspicious-domain.test
 
 appears unusual and warrants further investigation.
 
+Please refer to Image 16 for the corresponding terminal command and output.
 
-. Were any router configuration changes made?\
-\
+Were any router configuration changes made?
+
 Yes. One router configuration change was recorded.
 
 Displays configuration modifications made on the router, including:
@@ -212,9 +215,11 @@ Allow persistence for attackers
 
 In this scenario, the firewall modification appears to have been performed by the legitimate administrator, but configuration changes should always be reviewed and documented.
 
-\
-**.** Were there router interface up/down events?\
-\
+Please refer to Image 17 for the corresponding terminal command and output.
+
+
+Were there router interface up/down events?\
+
 Yes. The router recorded both a WAN interface outage and a recovery event.
 
 Displays network interface status changes recorded by the router.
@@ -240,4 +245,6 @@ Denial-of-Service (DoS) activity\
 Physical disconnections
 
 In this scenario, the interface recovered quickly, suggesting a temporary interruption rather than a prolonged outage.
+
+Please refer to Image 18 for the corresponding terminal command and output.
 
